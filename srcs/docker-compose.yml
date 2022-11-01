@@ -1,0 +1,33 @@
+version: "3.5"
+
+services:
+  mariadb:
+    image: mariadb
+    build: ./mariadb
+    environment:
+      - .env
+    networks:
+      - mynetwork
+
+  nginx:
+    image: nginx
+    build: ./nginx
+    ports:
+      - "80:80"      
+    networks:
+      - mynetwork
+
+  wordpress:
+    image: wordpress
+    build: ./wordpress
+    environment:
+      - .env
+    depends_on:
+      - mariadb
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    name: mynetwork
+    driver: bridge
