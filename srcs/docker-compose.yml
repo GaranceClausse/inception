@@ -1,15 +1,8 @@
 version: "3.5"
 
 services:
-  mariadb:
-    image: mariadb
-    build: ./mariadb
-    environment:
-      - .env
-    networks:
-      - mynetwork
-
-  nginx:
+ 
+   nginx:
     image: nginx
     build: ./nginx
     ports:
@@ -22,8 +15,6 @@ services:
     build: ./wordpress
     environment:
       - .env
-    depends_on:
-      - mariadb
     networks:
       - mynetwork
     volumes:
