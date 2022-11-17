@@ -26,6 +26,9 @@ services:
       - mariadb
     networks:
       - mynetwork
+    volumes:
+      - type: volume
+        target: /home/garance/data
 
 networks:
   mynetwork:
