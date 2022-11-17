@@ -2,6 +2,9 @@ FROM debian:buster
 
 RUN apt-get update && apt-get install -y mariadb-server;
 
-EXPOSE 80
+EXPOSE 3306
 
-CMD ["usr/sbin/mariadb"]
+HEALTHCHECK --start-period=5m \
+  CMD mariadb -e 'SELECT @@datadir;' || exit 1
+
+CMD ["mysqld"]
