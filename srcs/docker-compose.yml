@@ -1,13 +1,7 @@
 version: "3.5"
 
 services:
-  mariadb:
-    image: mariadb
-    build: ./mariadb
-    environment:
-      - .env
-    networks:
-      - mynetwork
+ 
 
   nginx:
     image: nginx
@@ -26,7 +20,10 @@ services:
       - mariadb
     networks:
       - mynetwork
-  
+  volumes:
+    - type: volume
+      target: /home/garance/data
+
 networks:
   mynetwork:
     name: mynetwork
