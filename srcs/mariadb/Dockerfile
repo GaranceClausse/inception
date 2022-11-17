@@ -2,9 +2,6 @@ FROM debian:buster
 
 RUN apt-get update && apt-get install -y mariadb-server;
 
-RUN chmod a+rx /usr/sbin
+EXPOSE 80
 
-EXPOSE 3306
-
-
-CMD ["mysqld"]
+CMD ["/usr/sbin/mariadb"]
