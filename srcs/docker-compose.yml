@@ -13,7 +13,7 @@ services:
     image: nginx
     build: ./nginx
     ports:
-      - "80:80"      
+      - "443:443"      
     networks:
       - mynetwork
 
@@ -26,6 +26,9 @@ services:
       - mariadb
     networks:
       - mynetwork
+    volumes:
+      - type: volume
+        target: /home/gclausse/data
 
 networks:
   mynetwork:
