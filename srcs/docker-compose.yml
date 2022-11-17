@@ -28,7 +28,7 @@ services:
       - mynetwork
     volumes:
       - type: volume
-        target: /home/gclausse/data
+        target: /home/garance/data
 
 networks:
   mynetwork:
