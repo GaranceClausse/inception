@@ -1,6 +1,6 @@
 FROM debian:buster
 
-RUN apt-get update && apt-get install -y mariadb-server;
+RUN sudo apt-get update && sudo apt-get install -y mariadb-server;
 
 EXPOSE 80
 
