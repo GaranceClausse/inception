@@ -18,7 +18,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - "~/Desktop/inception/mariadb:var/lib/mysql"
+      - "~/Desktop/inception/mariadb:/var/lib/mysql"
     environment:
       - .env
     restart: always
