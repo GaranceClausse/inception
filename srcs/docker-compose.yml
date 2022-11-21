@@ -27,7 +27,7 @@ services:
     image: wordpress
     build: ./wordpress
     ports:
-      -"8000:80"
+      - "8000:80"
     environment:
       - .env
     depends_on:
