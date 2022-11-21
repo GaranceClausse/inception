@@ -9,17 +9,7 @@ services:
       - "443:443"      
     networks:
       - mynetwork
-
-  wordpress:
-    image: wordpress
-    build: ./wordpress
-    environment:
-      - .env
-    depends_on:
-      - mariadb
-    networks:
-      - mynetwork
-    
+  
   mariadb:
     image: mariadb
     build: ./mariadb
@@ -31,6 +21,17 @@ services:
     networks:
       - mynetwork
 
+  wordpress:
+    image: wordpress
+    build: ./wordpress
+    environment:
+      - .env
+    depends_on:
+      - mariadb
+    networks:
+      - mynetwork
+    
+  
 networks:
   mynetwork:
     name: mynetwork
