@@ -16,7 +16,7 @@ services:
     image: mariadb
     build: ./mariadb
     volumes:
-      - db_data:var/lib/mysql
+      - data/mysql:var/lib/mysql
     environment:
       - .env
     restart: always
