@@ -15,8 +15,10 @@ services:
   mariadb:
     image: mariadb
     build: ./mariadb
+    ports:
+      - "3306:3306"
     volumes:
-      - data/mysql:var/lib/mysql
+      - "~/Desktop/inception/mariadb:var/lib/mysql"
     environment:
       - .env
     restart: always
@@ -35,4 +37,4 @@ services:
     restart: always
     networks:
       - mynetwork
-    
+   
