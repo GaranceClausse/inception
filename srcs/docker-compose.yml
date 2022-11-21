@@ -25,6 +25,9 @@ services:
     build: ./mariadb
     environment:
       - .env
+    ports:
+      - 3306:3306
+    restart: unless-stopped
     networks:
       - mynetwork
 
