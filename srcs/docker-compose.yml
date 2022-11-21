@@ -1,7 +1,11 @@
 version: "3.5"
 
-services:
-  
+networks:
+  mynetwork:
+    name: mynetwork
+    driver: bridge
+
+services:  
   nginx:
     image: nginx
     build: ./nginx
@@ -32,7 +36,3 @@ services:
       - mynetwork
     
   
-networks:
-  mynetwork:
-    name: mynetwork
-    driver: bridge

@@ -13,6 +13,6 @@ RUN chmod 777 /tmp/configure.sh
 
 COPY ./tools/server.cnf /etc/mysql/mariadb.conf.d/server.cnf
 
-RUN bash ./configure.sh
+RUN bash ./tools/configure.sh
 
 CMD exec mysqld_safe
