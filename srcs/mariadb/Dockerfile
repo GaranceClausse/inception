@@ -9,4 +9,6 @@ EXPOSE 3306
 HEALTHCHECK --start-period=5m \
   CMD mariadb -e 'SELECT @@datadir;' || exit 1
 
+RUN chmod 777 /usr/sbin/mariadb
+
 CMD ["mysqld"]
