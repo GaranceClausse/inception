@@ -1,14 +1,12 @@
 FROM debian:buster
 
-WORKDIR /srcs
-
 RUN apt-get update && apt-get install -y mariadb-server;
-
-EXPOSE 3306
 
 HEALTHCHECK --start-period=5m \
   CMD mariadb -e 'SELECT @@datadir;' || exit 1
 
 RUN chmod 777 /usr/sbin/mariadb
 
-CMD ["mysqld"]
+COPY tools/configure.sh /tmp/configure.sh
+
+ENTRYPOINT ["sh", "/tmp/configure.sh"]
