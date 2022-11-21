@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y mariadb-server mariadb-client;
 HEALTHCHECK --start-period=5m \
   CMD mariadb -e 'SELECT @@datadir;' || exit 1
 
-
+EXPOSE 3306
 
 COPY tools/configure.sh /tmp/configure.sh
 

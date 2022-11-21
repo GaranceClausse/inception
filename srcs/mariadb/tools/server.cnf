@@ -21,3 +21,6 @@ query_cache_size        = 128M
 
 log_error = /var/log/mysql/error.log
 expire_logs_days        = 10
+
+[mysqld_safe]
+open-files-limit = 8192

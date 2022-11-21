@@ -17,8 +17,6 @@ services:
   mariadb:
     image: mariadb
     build: ./mariadb
-    ports:
-      - "3306:3306"
     environment:
       - .env
     restart: always
