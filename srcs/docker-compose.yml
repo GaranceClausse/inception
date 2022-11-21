@@ -8,15 +8,15 @@ networks:
 services:  
   nginx:
     image: nginx
-    build: ./nginx
-    ports:
-      - "443:443"      
+    build: ./nginx   
     networks:
       - mynetwork
   
   mariadb:
     image: mariadb
     build: ./mariadb
+    volumes:
+      -db_data:var/lib/mysql
     environment:
       - .env
     restart: always
@@ -26,11 +26,15 @@ services:
   wordpress:
     image: wordpress
     build: ./wordpress
+    ports:
+      -"8000:80"
     environment:
       - .env
     depends_on:
       - mariadb
+    restart: always
     networks:
       - mynetwork
     
-  
+  volumes:
+    db_data: {}
